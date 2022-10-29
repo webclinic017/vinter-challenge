@@ -125,6 +125,8 @@ class KDJStrategy(Strategy):
         condition_today = self.J[0] - self.D[0]
         if not self.position:
             # J - D value
+            # D is crossing J, from bellow up
+            # KDJ is indicating golden and dead crosses
             if condition_yesterday < 0 < condition_today:
                 self.log(f"BUY CREATE, {self.data.close[0]:.2f}")
                 self.order = self.buy()
